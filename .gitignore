@@ -16,13 +16,13 @@ temp.tsx
 
 #daywise commits
 # src/modules/billing/
-src/modules/features/
+# src/modules/features/
 # src/modules/tenants/
 src/modules/users/
 
 # src/routes/BillingRoutes.tsx
 # src/routes/TenantRoutes.tsx
-src/routes/FeatureRoutes.tsx
+# src/routes/FeatureRoutes.tsx
 src/routes/UserRoutes.tsx
 
 # Editor directories and files
