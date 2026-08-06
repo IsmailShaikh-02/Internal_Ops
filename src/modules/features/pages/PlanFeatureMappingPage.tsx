@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFeatureStore } from "../hooks/useFeatureState";
 import { PlanPreviewModal } from "../components/PlanPreviewModal";
 import { Button } from "@/shared/components/ui/button";
-import { Check, X, Copy, Eye, PlusCircle, Settings, Edit3 } from "lucide-react";
+import { Check, X, Copy, Eye, Settings } from "lucide-react";
 import { toast } from "sonner";
 import type { PlanFeatureMapping } from "../types";
 

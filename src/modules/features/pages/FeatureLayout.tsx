@@ -17,7 +17,7 @@ export function FeatureLayout() {
   const {
     modules,
     featureFlags,
-    tenantOverrides,
+    // tenantOverrides,
     releases,
     addModule,
     addFeatureFlag,

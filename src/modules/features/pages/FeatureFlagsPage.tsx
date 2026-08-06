@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFeatureStore } from "../hooks/useFeatureState";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { Switch } from "@/shared/components/ui/Switch";
-import { StatusBadge } from "@/shared/components/ui/StatusBadge";
+// import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { FeatureFlagModal } from "../components/FeatureFlagModal";
 import { Button } from "@/shared/components/ui/button";
 import { Edit2, Copy, RotateCcw, Calendar } from "lucide-react";
@@ -16,7 +16,7 @@ export function FeatureFlagsPage() {
     updateFeatureFlag,
     toggleFeatureFlagStatus,
     cloneFeatureFlag,
-    addFeatureFlag
+    // addFeatureFlag
   } = useFeatureStore();
 
   const [editingFlag, setEditingFlag] = useState<FeatureFlag | null>(null);

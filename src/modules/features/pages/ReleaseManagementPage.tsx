@@ -4,7 +4,7 @@ import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { ReleaseModal } from "../components/ReleaseModal";
 import { Button } from "@/shared/components/ui/button";
-import { Play, Pause, RotateCcw, ShieldAlert, CheckCircle, Clock } from "lucide-react";
+import { Play, Pause, RotateCcw, ShieldAlert } from "lucide-react";
 import { toast } from "sonner";
 import type { Release } from "../types";
 import { validateCanApplyKillSwitch } from "../validation";

@@ -8,7 +8,7 @@ import { RoleModal } from "../components/RoleModal";
 import { GroupModal } from "../components/GroupModal";
 import { RoleAssignmentModal } from "../components/RoleAssignmentModal";
 import { Button } from "@/shared/components/ui/button";
-import { Plus, UserPlus, KeyRound, ShieldAlert } from "lucide-react";
+import { Plus, UserPlus, KeyRound } from "lucide-react";
 import { toast } from "sonner";
 
 export function UserLayout() {

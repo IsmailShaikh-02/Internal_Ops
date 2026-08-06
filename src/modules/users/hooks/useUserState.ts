@@ -83,22 +83,22 @@ export const useUserState = create<UserStore>((set) => ({
       users: state.users.filter((u) => u.id !== id)
     })),
 
-  resetPassword: (id) => {
+  resetPassword: () => {
     // Generate a simple mock temp password
     const tempPass = `Temp!${Math.random().toString(36).slice(-8)}`;
     // In real app, we would save hashed. Here we just trigger action.
     return tempPass;
   },
 
-  unlockAccount: (id) => {
+  unlockAccount: () => {
     // Mock unlocking account, in real app, reset lock metadata
   },
 
-  forceLogout: (id) => {
+  forceLogout: () => {
     // Force log out mock action
   },
 
-  resendInvitation: (id) => {
+  resendInvitation: () => {
     // Mock resending email invite
   },
 

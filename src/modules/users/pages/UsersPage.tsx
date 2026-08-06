@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useUserState } from "../hooks/useUserState";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
-import { Button } from "@/shared/components/ui/button";
+// import { Button } from "@/shared/components/ui/button";
 import { UserModal } from "../components/UserModal";
 import type { User } from "../types";
 import { toast } from "sonner";
@@ -14,7 +14,7 @@ import {
   ShieldAlert,
   UserCheck,
   UserMinus,
-  KeyRound,
+  // KeyRound,
   RotateCcw,
   LogOut,
   Trash2,

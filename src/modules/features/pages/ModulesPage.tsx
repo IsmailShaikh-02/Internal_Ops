@@ -5,7 +5,7 @@ import { Switch } from "@/shared/components/ui/Switch";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { ModuleModal } from "../components/ModuleModal";
 import { Button } from "@/shared/components/ui/button";
-import { Edit2, Archive, CheckCircle2, XCircle } from "lucide-react";
+import { Edit2, Archive } from "lucide-react";
 import { toast } from "sonner";
 import type { Module } from "../types";
 

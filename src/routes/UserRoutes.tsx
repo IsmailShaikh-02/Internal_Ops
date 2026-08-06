@@ -1,7 +1,7 @@
 // src/routes/UserRoutes.tsx
 
 import { lazy } from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { UserLayout } from "@/modules/users/pages/UserLayout";
 
 const UsersPage = lazy(() => import("@/modules/users/pages/UsersPage"));
