@@ -107,7 +107,15 @@ export const navigation: NavigationModule[] = [
     title: "Support Center",
     icon: Headset,
     path: "/support",
-    children: [],
+    children: [
+      { title: "Support Dashboard", path: "/support/dashboard", group: "QUEUES" },
+      { title: "Support Tickets", path: "/support/tickets", group: "QUEUES" },
+      { title: "Bug Reports", path: "/support/bugs", group: "QUEUES" },
+      { title: "Feature Requests", path: "/support/features", group: "QUEUES" },
+      { title: "Customer Requests", path: "/support/customer-requests", group: "QUEUES" },
+      { title: "Announcements", path: "/support/announcements", group: "CONTENT" },
+      { title: "Knowledge Articles", path: "/support/knowledge", group: "CONTENT" },
+    ],
   },
 
   {

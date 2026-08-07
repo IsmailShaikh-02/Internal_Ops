@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { AuthProvider } from "./AuthProvider";
 import { ThemeProvider } from "./ThemeProvider";
+import { Toaster } from "sonner";
 
 export function AppProvider({
   children,
@@ -9,7 +10,10 @@ export function AppProvider({
 }) {
   return (
     <ThemeProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        {children}
+        <Toaster position="top-right" richColors />
+      </AuthProvider>
     </ThemeProvider>
   );
 }

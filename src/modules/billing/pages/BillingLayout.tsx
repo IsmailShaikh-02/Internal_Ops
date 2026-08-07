@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useBillingStore } from "../hooks/useBillingState";
 import { ReconcileModal } from "../components/ReconcileModal";
@@ -33,6 +33,12 @@ export function BillingLayout() {
   const [isNewCouponOpen, setIsNewCouponOpen] = useState(false);
   const [isAddTaxOpen, setIsAddTaxOpen] = useState(false);
   const [isIssueRefundOpen, setIsIssueRefundOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenModal = () => setIsNewPlanOpen(true);
+    window.addEventListener("open-new-plan-modal", handleOpenModal);
+    return () => window.removeEventListener("open-new-plan-modal", handleOpenModal);
+  }, []);
 
   // Tab definitions
   const tabs = [
@@ -180,9 +186,9 @@ export function BillingLayout() {
       </div>
 
       {/* Subpage Container */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs min-h-[500px]">
+      {/* <div className="bg-white rounded-2xl border border-slate-200 p-0 shadow-xs min-h-[500px]"> */}
         <Outlet />
-      </div>
+      {/* </div> */}
 
       {/* Modals Containers */}
       <ReconcileModal

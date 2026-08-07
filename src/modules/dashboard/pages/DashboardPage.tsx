@@ -25,8 +25,8 @@ import { RecentTenantsTable } from "../components/tables/RecentTenantsTable";
 import { RecentPaymentsTable } from "../components/tables/RecentPaymentsTable";
 import { QuickActionsCard } from "../components/actions/QuickActionsCard";
 
-// Mock Data
-import { mockDashboardData } from "../data/mockDashboardData";
+// Hooks & Validation
+import { useDashboardData } from "../hooks/useDashboardData";
 
 export default function DashboardPage() {
   const {
@@ -40,7 +40,7 @@ export default function DashboardPage() {
     recentTenants,
     recentPayments,
     quickActions,
-  } = mockDashboardData;
+  } = useDashboardData();
 
   return (
     <div className="max-w-full mx-auto flex flex-col gap-6 p-1">
