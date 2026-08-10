@@ -1,1 +1,8 @@
-npm run build
+echo "→ Running production build before push..."
+
+npm run build || {
+  echo "❌ Build failed. Push cancelled. Please fix the above errors and try again"
+  exit 1
+}
+
+echo "✓ Build passed. Continuing push..."
