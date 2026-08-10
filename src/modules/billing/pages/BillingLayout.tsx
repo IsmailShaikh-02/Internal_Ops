@@ -9,6 +9,7 @@ import { IssueRefundModal } from "../components/IssueRefundModal";
 import { Button } from "@/shared/components/ui/button";
 import { RefreshCw, Plus } from "lucide-react";
 import { toast } from "sonner"; // Sonner is in package.json!
+import { PageHeader } from "@/shared/components/layout/PageHeader";
 
 export function BillingLayout() {
   const location = useLocation();
@@ -69,7 +70,6 @@ export function BillingLayout() {
       <Button
         key="reconcile"
         variant="outline"
-        className="rounded-xl flex items-center gap-1.5 font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer"
         onClick={() => setIsReconcileOpen(true)}
       >
         <RefreshCw className="h-4 w-4" />
@@ -81,7 +81,6 @@ export function BillingLayout() {
       actions.push(
         <Button
           key="new-plan"
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold cursor-pointer"
           onClick={() => setIsNewPlanOpen(true)}
         >
           <Plus className="h-4 w-4" />
@@ -92,7 +91,6 @@ export function BillingLayout() {
       actions.push(
         <Button
           key="new-coupon"
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold cursor-pointer"
           onClick={() => setIsNewCouponOpen(true)}
         >
           <Plus className="h-4 w-4" />
@@ -103,7 +101,6 @@ export function BillingLayout() {
       actions.push(
         <Button
           key="add-tax"
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold cursor-pointer"
           onClick={() => setIsAddTaxOpen(true)}
         >
           <Plus className="h-4 w-4" />
@@ -114,7 +111,6 @@ export function BillingLayout() {
       actions.push(
         <Button
           key="issue-refund"
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold cursor-pointer"
           onClick={() => setIsIssueRefundOpen(true)}
         >
           <Plus className="h-4 w-4" />
@@ -127,27 +123,25 @@ export function BillingLayout() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-full mx-auto flex flex-col gap-6 p-1">
       {/* Breadcrumbs */}
-      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-        <span>Platform</span>
-        <span>&gt;</span>
-        <span className="text-slate-800">Subscription &amp; Billing</span>
-      </div>
+      <PageHeader
+        breadcrumb={[
+          { label: "Platform" },
+          { label: "Dashboard" },
+        ]}
+        title="Subscription &amp; Billing"
+        description="Plans catalog, active subscriptions, invoicing and finance operations."
+        // actions={
+        //   <>
+        //     <Button variant="outline">Last 30 days</Button>
+        //     <Button>Export snapshot</Button>
+        //   </>
+        // }
+      />
 
       {/* Header Panel */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Subscription &amp; Billing</h1>
-          <p className="text-sm text-slate-500 font-medium mt-1">
-            Plans catalog, active subscriptions, invoicing and finance operations.
-          </p>
-          <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 rounded-full text-slate-600 text-xs font-bold border border-slate-200">
-            <span className="h-1.5 w-1.5 bg-blue-600 rounded-full animate-pulse" />
-            Stripe live mode
-          </div>
-        </div>
-
         {/* Top actions */}
         <div className="flex items-center gap-2">
           {renderActionButtons()}
@@ -155,8 +149,9 @@ export function BillingLayout() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-slate-200 overflow-x-auto">
-        <nav className="flex gap-6 min-w-max pb-px">
+        <div className="border-b border-slate-200">
+          <nav className="flex flex-nowrap md:flex-wrap gap-x-8 gap-y-0 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+
           {tabs.map((tab) => {
             const isActive = location.pathname === tab.path;
             return (

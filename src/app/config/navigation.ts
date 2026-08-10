@@ -123,7 +123,20 @@ export const navigation: NavigationModule[] = [
     title: "Monitoring",
     icon: Activity,
     path: "/monitoring",
-    children: [],
+    children: [
+      { title: "System Health", path: "/monitoring/health", group: "INFRASTRUCTURE" },
+      { title: "Server Monitoring", path: "/monitoring/server", group: "INFRASTRUCTURE" },
+      { title: "API Monitoring", path: "/monitoring/api", group: "INFRASTRUCTURE" },
+      { title: "Queue Monitoring", path: "/monitoring/queue", group: "INFRASTRUCTURE" },
+      { title: "Redis Monitoring", path: "/monitoring/redis", group: "INFRASTRUCTURE" },
+      { title: "Storage Monitoring", path: "/monitoring/storage", group: "INFRASTRUCTURE" },
+      { title: "Database Monitoring", path: "/monitoring/database", group: "INFRASTRUCTURE" },
+      { title: "Background Jobs", path: "/monitoring/background-jobs", group: "JOBS & LOGS" },
+      { title: "Scheduler", path: "/monitoring/scheduler", group: "JOBS & LOGS" },
+      { title: "Error Logs", path: "/monitoring/error-logs", group: "JOBS & LOGS" },
+      { title: "Application Logs", path: "/monitoring/app-logs", group: "JOBS & LOGS" },
+      { title: "Live Logs", path: "/monitoring/live-logs", group: "JOBS & LOGS" },
+    ],
   },
 
   {

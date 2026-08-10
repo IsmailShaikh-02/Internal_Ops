@@ -10,6 +10,7 @@ import { RoleAssignmentModal } from "../components/RoleAssignmentModal";
 import { Button } from "@/shared/components/ui/button";
 import { Plus, UserPlus, KeyRound } from "lucide-react";
 import { toast } from "sonner";
+import { PageHeader } from "@/shared/components/layout/PageHeader";
 
 export function UserLayout() {
   const location = useLocation();
@@ -90,29 +91,22 @@ export function UserLayout() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Breadcrumbs */}
-      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-        <span>Platform</span>
-        <span>&gt;</span>
-        <span className="text-slate-800">Platform Users</span>
-      </div>
-
-      {/* Header Panel */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Platform Users</h1>
-          <p className="text-sm text-slate-500 font-medium mt-1">
-            Manage console administrators, role settings, permissions, assignments, and governance.
-          </p>
-        </div>
-
-        {/* Action Button Container */}
-        <div className="flex items-center gap-2">
-          {renderActionButtons()}
-        </div>
-      </div>
-
+    <div className="max-w-full mx-auto flex flex-col gap-6 p-1">
+      
+      <PageHeader
+        breadcrumb={[
+          { label: "Platform" },
+          { label: "Platform Users" },
+        ]}
+        title="Platform Users"
+        description="Manage console administrators, role settings, permissions, assignments, and governance."
+        actions={
+          <>
+            {renderActionButtons()}
+          </>
+        }
+      />
+     
       {/* Tab bar */}
       <div className="border-b border-slate-200 overflow-x-auto">
         <nav className="flex gap-6 min-w-max pb-px">

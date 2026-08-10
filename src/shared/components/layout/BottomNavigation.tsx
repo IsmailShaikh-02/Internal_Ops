@@ -5,14 +5,14 @@ import {
   LayoutDashboard,
   Users,
   CreditCard,
-  Plus,
   Menu,
   X,
   ChevronLeft,
   ChevronRight,
   User
 } from "lucide-react";
-import { toast } from "sonner";
+import { QuickActionFAB } from "./QuickActionFAB";
+import { ActivityAttentionSheet } from "./ActivityAttentionSheet";
 
 export function BottomNavigation() {
   const location = useLocation();
@@ -23,6 +23,9 @@ export function BottomNavigation() {
   const [currentView, setCurrentView] = useState<"modules" | "submodules">("modules");
   const [selectedModule, setSelectedModule] = useState<NavigationModule | null>(null);
 
+  // Command center and Activity attention hub states
+  const [isActivityOpen, setIsActivityOpen] = useState(false);
+
   const activePath = location.pathname;
 
   // Determine active module ID for highlights
@@ -32,66 +35,6 @@ export function BottomNavigation() {
     }
     return activePath.startsWith(module.path);
   }) || navigation[0];
-
-  // Dynamic quick action button configuration based on active page
-  const getQuickActionConfig = () => {
-    if (activePath.startsWith("/tenants")) {
-      return {
-        label: "Create Tenant",
-        action: () => navigate("/tenants/create"),
-      };
-    }
-    if (activePath.startsWith("/billing")) {
-      return {
-        label: "New Plan",
-        action: () => window.dispatchEvent(new CustomEvent("open-new-plan-modal")),
-      };
-    }
-    if (activePath.startsWith("/support/tickets")) {
-      return {
-        label: "Create Ticket",
-        action: () => window.dispatchEvent(new CustomEvent("open-create-ticket-modal")),
-      };
-    }
-    if (activePath.startsWith("/support/bugs")) {
-      return {
-        label: "Report Bug",
-        action: () => window.dispatchEvent(new CustomEvent("open-report-bug-modal")),
-      };
-    }
-    if (activePath.startsWith("/support/features")) {
-      return {
-        label: "Submit Request",
-        action: () => window.dispatchEvent(new CustomEvent("open-submit-feature-modal")),
-      };
-    }
-    if (activePath.startsWith("/support/customer-requests")) {
-      return {
-        label: "Create Request",
-        action: () => window.dispatchEvent(new CustomEvent("open-create-customer-request-modal")),
-      };
-    }
-    if (activePath.startsWith("/support/announcements")) {
-      return {
-        label: "New Announcement",
-        action: () => window.dispatchEvent(new CustomEvent("open-create-announcement-modal")),
-      };
-    }
-    if (activePath.startsWith("/support/knowledge")) {
-      return {
-        label: "Create Article",
-        action: () => window.dispatchEvent(new CustomEvent("open-create-article-modal")),
-      };
-    }
-
-    // Default Fallback
-    return {
-      label: "Quick Actions",
-      action: () => toast.info("No specific action available for this page."),
-    };
-  };
-
-  const quickAction = getQuickActionConfig();
 
   const handleModuleClick = (module: NavigationModule) => {
     if (module.children && module.children.length > 0) {
@@ -143,18 +86,11 @@ export function BottomNavigation() {
         </div>
 
         {/* Center: Contextual FAB (Floating Action Button) */}
-        <div className="relative -top-4 mx-2 flex flex-col items-center shrink-0">
-          <button
-            type="button"
-            onClick={quickAction.action}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-white shadow-md active:scale-95 transition cursor-pointer border-2 border-white"
-            aria-label={quickAction.label}
-          >
-            <Plus className="h-5 w-5 stroke-[2.5]" />
-          </button>
-          <span className="text-[8px] font-bold text-slate-500 mt-1 block uppercase tracking-wider">
-            {quickAction.label}
-          </span>
+        <div className="relative -top-4 mx-2">
+          <QuickActionFAB
+            onClick={() => window.dispatchEvent(new CustomEvent("focus-top-search"))}
+            onSwipeUp={() => setIsActivityOpen(true)}
+          />
         </div>
 
         {/* Right Side: Billing & All Modules Trigger (Menu) */}
@@ -305,6 +241,13 @@ export function BottomNavigation() {
           </div>
         </div>
       )}
+
+      {/* Activity & Attention Hub Bottom Sheet */}
+      <ActivityAttentionSheet
+        isOpen={isActivityOpen}
+        onClose={() => setIsActivityOpen(false)}
+        onNavigate={(path) => navigate(path)}
+      />
     </>
   );
 }

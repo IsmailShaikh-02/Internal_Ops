@@ -12,6 +12,7 @@ import { CreateFeatureRequestModal } from "../components/CreateFeatureRequestMod
 import { CreateCustomerRequestModal } from "../components/CreateCustomerRequestModal";
 import { CreateAnnouncementModal } from "../components/CreateAnnouncementModal";
 import { CreateArticleModal } from "../components/CreateArticleModal";
+import { PageHeader } from "@/shared/components/layout/PageHeader";
 
 export function SupportLayout() {
   const location = useLocation();
@@ -149,32 +150,24 @@ export function SupportLayout() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-full mx-auto flex flex-col gap-6 p-1">
       {/* Breadcrumbs */}
-      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-        <span>Platform</span>
-        <span>&gt;</span>
-        <span className="text-slate-800">Support Center</span>
-      </div>
-
-      {/* Header Panel */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Support Center</h1>
-          <p className="text-sm text-slate-500 font-medium mt-1">
-            Customer tickets, bug reports, requests, announcements and the knowledge base.
-          </p>
-        </div>
-
-        {/* Top actions */}
-        <div className="flex items-center gap-2">
-          {renderActionButtons()}
-        </div>
-      </div>
-
-      {/* Navigation Tabs */}
-      <div className="border-b border-slate-200 overflow-x-auto">
-        <nav className="flex gap-6 min-w-max pb-px">
+        <PageHeader
+                breadcrumb={[
+                  { label: "Platform" },
+                  { label: "Support Center" },
+                ]}
+                title="Support Center"
+                description="Customer tickets, bug reports, requests, announcements and the knowledge base."
+                actions={
+                  <>
+                    {renderActionButtons()}
+                  </>
+                }
+              />
+           {/* Navigation Tabs */}
+      <div className="border-b border-slate-200">
+        <nav className="flex flex-nowrap md:flex-wrap gap-x-8 gap-y-0 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {tabs.map((tab) => {
             const isActive = location.pathname.startsWith(tab.path);
             return (

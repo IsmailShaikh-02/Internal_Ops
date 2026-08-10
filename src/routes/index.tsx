@@ -15,7 +15,7 @@ import { BillingRoutes } from './BillingRoutes';
 import { FeatureRoutes } from './FeatureRoutes';
 import { UserRoutes } from './UserRoutes';
 import { SupportRoutes } from './SupportRoutes';
-// import { MonitoringRoutes } from './MonitoringRoutes';
+import { MonitorRoutes } from './Monitor';
 // import { SecurityRoutes } from './SecurityRoutes';
 // import { AiRoutes } from './AiRoutes';
 // import { IntegrationRoutes } from './IntegrationRoutes';
@@ -45,8 +45,8 @@ export const AppRoutes = () => {
             {FeatureRoutes}
             {UserRoutes}
             {SupportRoutes}
-            {/* {MonitoringRoutes}
-            {SecurityRoutes}
+            {MonitorRoutes}
+            {/* {SecurityRoutes}
             {AiRoutes}
             {IntegrationRoutes}
             {ReportRoutes}

@@ -6,6 +6,14 @@ import { Check, ChevronLeft, ChevronRight, ArrowLeft, Building2, User, CreditCar
 import { type Tenant } from "../data/mockTenants";
 import { validateStep, type FormErrors } from "../validation/tenantValidation";
 import { toast } from "sonner";
+import {
+  Users,
+  Coins,
+  Clock3,
+  Target,
+  Monitor,
+  FolderGit2,
+} from "lucide-react";
 
 const steps = [
   { number: 1, name: "Organization Info", icon: Building2 },
@@ -152,15 +160,51 @@ export default function CreateTenantPage() {
     Projects: "Tasks, milestones, team collaboration",
   };
 
-  const moduleIcons: Record<string, string> = {
-    HRMS: "👥",
-    Payroll: "💵",
-    Attendance: "🕐",
-    Recruitment: "📋",
-    Assets: "🖥️",
-    Projects: "📁",
-  };
 
+const moduleMetaData: Record<
+  string,
+  {
+    desc: string;
+    icon: React.ReactNode;
+    category: string;
+  }
+> = {
+  HRMS: {
+    desc: "Employee directory, payroll, leaves and onboarding flows.",
+    icon: <Users className="h-5 w-5 text-indigo-600" />,
+    category: "Core Operations",
+  },
+
+  Payroll: {
+    desc: "Salary processing, payslips, deductions and payroll management.",
+    icon: <Coins className="h-5 w-5 text-emerald-600" />,
+    category: "Financials",
+  },
+
+  Attendance: {
+    desc: "Track employee attendance, working hours, shifts and time records.",
+    icon: <Clock3 className="h-5 w-5 text-amber-600" />,
+    category: "Core Operations",
+  },
+
+  Recruitment: {
+    desc: "Manage job openings, candidates, interviews and hiring workflows.",
+    icon: <ClipboardList className="h-5 w-5 text-blue-600" />,
+    category: "People & Hiring",
+  },
+
+  Assets: {
+    desc: "Track company assets, assignments, maintenance and asset lifecycle.",
+    icon: <Monitor className="h-5 w-5 text-sky-600" />,
+    category: "Operations",
+  },
+
+  Projects: {
+    desc: "Task tracking, project planning, milestones and time logging.",
+    icon: <FolderGit2 className="h-5 w-5 text-purple-600" />,
+    category: "Core Operations",
+  },
+};
   return (
     <div className="w-full max-w-4xl mx-auto flex flex-col gap-5 p-4 md:p-1">
       <div>
@@ -441,47 +485,81 @@ export default function CreateTenantPage() {
 
           {/* Step 4 */}
           {currentStep === 4 && (
-            <div className="animate-in fade-in slide-in-from-right-2 duration-200">
-              <p className="text-sm text-slate-500 mb-4">Toggle the modules enabled for this client workspace.</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {Object.entries(form.modules).map(([key, isEnabled]) => (
-                  <button
-                    key={key}
-                    type="button"
-                    onClick={() => updateModule(key as keyof typeof form.modules)}
-                    className={`flex items-center gap-3 p-4 border rounded-xl text-left transition-all duration-200 cursor-pointer group ${
-                      isEnabled
-                        ? "border-slate-800 bg-slate-50 shadow-sm"
-                        : "border-slate-200 hover:border-slate-300 bg-white"
-                    }`}
-                  >
-                    <div className={`text-xl flex-shrink-0 transition-transform duration-200 ${isEnabled ? "scale-110" : "scale-100 group-hover:scale-105"}`}>
-                      {moduleIcons[key]}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-sm font-semibold text-primary block">{key}</span>
-                      <span className="text-sm text-slate-400 truncate block">{moduleDescriptions[key]}</span>
-                    </div>
-                    <div
-                      className={`h-5 w-9 rounded-full relative flex-shrink-0 transition-colors duration-200 ${
-                        isEnabled ? "bg-primary" : "bg-slate-200"
-                      }`}
-                    >
-                      <div
-                        className={`h-4 w-4 bg-white rounded-full absolute top-0.5 shadow-sm transition-transform duration-200 ${
-                          isEnabled ? "translate-x-4" : "translate-x-0.5"
-                        }`}
-                      />
-                    </div>
-                  </button>
-                ))}
-              </div>
-              <p className="text-sm text-slate-400 mt-3">
-                {Object.values(form.modules).filter(Boolean).length} of {Object.keys(form.modules).length} modules enabled
-              </p>
-            </div>
-          )}
+  <div>
+    <p className="text-sm text-slate-500 mb-6">
+      Toggle the modules enabled for this client workspace.
+    </p>
 
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {Object.entries(form.modules).map(([key, isEnabled]) => {
+        const module = moduleMetaData[key];
+
+        return (
+          <button
+            key={key}
+            type="button"
+            onClick={() =>
+              updateModule(key as keyof typeof form.modules)
+            }
+            className={`flex items-center gap-3 p-4 border rounded-xl text-left transition-all duration-200 cursor-pointer group ${
+              isEnabled
+                ? "border-slate-800 bg-slate-50 shadow-sm"
+                : "border-slate-200 hover:border-slate-300 bg-white"
+            }`}
+          >
+            {/* Icon */}
+            <div
+              className={`flex-shrink-0 transition-transform duration-200 ${
+                isEnabled
+                  ? "scale-110"
+                  : "scale-100 group-hover:scale-105"
+              }`}
+            >
+              {module?.icon}
+            </div>
+
+            {/* Module Info */}
+            <div className="flex-1 min-w-0">
+              <div className="font-semibold text-sm text-slate-900">
+                {key}
+              </div>
+
+              <p className="text-xs text-slate-500 mt-1">
+                {module?.desc}
+              </p>
+
+              {module?.category && (
+                <span className="inline-block mt-2 text-[10px] font-medium text-slate-400 uppercase tracking-wide">
+                  {module.category}
+                </span>
+              )}
+            </div>
+
+            {/* Toggle */}
+            <div
+              className={`h-5 w-9 rounded-full relative flex-shrink-0 transition-colors duration-200 ${
+                isEnabled ? "bg-primary" : "bg-slate-200"
+              }`}
+            >
+              <div
+                className={`h-4 w-4 bg-white rounded-full absolute top-0.5 shadow-sm transition-transform duration-200 ${
+                  isEnabled
+                    ? "translate-x-4"
+                    : "translate-x-0.5"
+                }`}
+              />
+            </div>
+          </button>
+        );
+      })}
+    </div>
+
+    <p className="text-sm text-slate-500 mt-4">
+      {Object.values(form.modules).filter(Boolean).length} of{" "}
+      {Object.keys(form.modules).length} modules enabled
+    </p>
+  </div>
+)}
           {/* Step 5 */}
           {currentStep === 5 && (
             <div className="space-y-4 animate-in fade-in slide-in-from-right-2 duration-200">
@@ -638,7 +716,8 @@ export default function CreateTenantPage() {
                     .filter(([_, en]) => en)
                     .map(([key]) => (
                       <span key={key} className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-800">
-                        {moduleIcons[key]} {key}
+                        {moduleMetaData[key]?.icon}
+                        {key}
                       </span>
                     ))}
                   {Object.values(form.modules).every((v) => !v) && (

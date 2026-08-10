@@ -153,14 +153,14 @@ export default function TenantDetailPage() {
 
       {/* Tabs Row */}
       <div className="border-b border-slate-200 overflow-x-auto">
-        <nav className="flex space-x-8 mb-px min-w-max">
+        <nav className="flex space-x-8 mb-px min-w-max ">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.name;
             return (
               <button
                 key={tab.name}
                 onClick={() => setActiveTab(tab.name)}
-                className={`py-3.5 border-b-2 font-semibold text-sm transition-all duration-150 whitespace-nowrap focus:outline-none ${
+                className={`py-3.5 border-b-2 font-semibold text-sm transition-all duration-150 whitespace-nowrap cursor-pointer focus:outline-none ${
                   isActive
                     ? "border-slate-800 text-slate-900"
                     : "border-transparent text-slate-500 hover:text-slate-800"

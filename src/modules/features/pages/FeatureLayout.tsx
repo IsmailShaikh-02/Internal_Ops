@@ -8,6 +8,7 @@ import { ReleaseModal } from "../components/ReleaseModal";
 import { Button } from "@/shared/components/ui/button";
 import { Plus } from "lucide-react";
 import { toast } from "sonner";
+import { PageHeader } from "@/shared/components/layout/PageHeader";
 
 export function FeatureLayout() {
   const location = useLocation();
@@ -46,7 +47,6 @@ export function FeatureLayout() {
       return (
         <Button
           onClick={() => setIsModuleOpen(true)}
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold text-xs py-2 px-4 cursor-pointer"
         >
           <Plus className="h-4 w-4" />
           New module
@@ -57,7 +57,6 @@ export function FeatureLayout() {
       return (
         <Button
           onClick={() => setIsFlagOpen(true)}
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold text-xs py-2 px-4 cursor-pointer"
         >
           <Plus className="h-4 w-4" />
           New feature flag
@@ -68,7 +67,6 @@ export function FeatureLayout() {
       return (
         <Button
           onClick={() => setIsOverrideOpen(true)}
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold text-xs py-2 px-4 cursor-pointer"
         >
           <Plus className="h-4 w-4" />
           Add override
@@ -79,7 +77,6 @@ export function FeatureLayout() {
       return (
         <Button
           onClick={() => setIsReleaseOpen(true)}
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl flex items-center gap-1.5 font-semibold text-xs py-2 px-4 cursor-pointer"
         >
           <Plus className="h-4 w-4" />
           Create release
@@ -90,32 +87,27 @@ export function FeatureLayout() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-full mx-auto flex flex-col gap-6 p-1">
       {/* Breadcrumbs */}
-      <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-        <span>Platform</span>
-        <span>&gt;</span>
-        <span className="text-slate-800">Feature Management</span>
-      </div>
-
-      {/* Header Panel */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Feature Management</h1>
-          <p className="text-sm text-slate-500 font-medium mt-1">
-            Modules, feature flags, per-tenant overrides and release pipeline.
-          </p>
-        </div>
-
-        {/* Top actions */}
-        <div className="flex items-center gap-2">
-          {renderActionButtons()}
-        </div>
-      </div>
-
+      <PageHeader
+        breadcrumb={[
+          { label: "Platform" },
+          { label: "Feature Management" },
+          
+        ]}
+        title="Feature Management"
+        description="Modules, feature flags, per-tenant overrides and release pipeline."
+        actions={
+          <>
+            {renderActionButtons()}
+          </>
+        }
+      />
+     
       {/* Navigation Tabs */}
-      <div className="border-b border-slate-200 overflow-x-auto">
-        <nav className="flex gap-6 min-w-max pb-px">
+<div className="border-b border-slate-200">
+  <nav className="flex flex-nowrap md:flex-wrap gap-x-8 gap-y-0 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+
           {tabs.map((tab) => {
             const isActive = location.pathname === tab.path || (tab.path === "/features/modules" && location.pathname === "/features");
             return (
