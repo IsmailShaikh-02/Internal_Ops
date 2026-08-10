@@ -1,9 +1,9 @@
 // src/modules/monitor/pages/LiveLogsPage.tsx
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { Button } from "@/shared/components/ui/button";
-import { StatusBadge } from "@/shared/components/ui/StatusBadge";
+// import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { liveLogsInitial, generateRandomLiveLog } from "../data/mockData";
 import { type LogEntry } from "../types";
 import { toast } from "sonner";

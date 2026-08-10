@@ -310,7 +310,7 @@ export const liveLogsInitial: LogEntry[] = [
   { id: "live-4", timestamp: "11:13:15", severity: "info", module: "API", message: "POST /api/v1/auth/refresh 201 Created 85ms" },
 ];
 
-const liveModules = ["API", "Redis", "Queue", "Database", "Billing", "Tenant Activity", "Auth"];
+// const liveModules = ["API", "Redis", "Queue", "Database", "Billing", "Tenant Activity", "Auth"];
 const liveMessages = [
   { severity: "info", module: "API", message: "GET /api/v1/users/profile 200 OK 32ms" },
   { severity: "debug", module: "Redis", message: "Set key 'session:token:usr_992' with TTL 3600" },

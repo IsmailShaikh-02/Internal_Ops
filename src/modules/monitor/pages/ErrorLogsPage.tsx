@@ -1,6 +1,6 @@
 // src/modules/monitor/pages/ErrorLogsPage.tsx
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
@@ -8,7 +8,7 @@ import { Button } from "@/shared/components/ui/button";
 import { errorLogsMock } from "../data/mockData";
 import { type LogEntry } from "../types";
 import { toast } from "sonner";
-import { AlertCircle, Filter, FileText, CheckCircle2 } from "lucide-react";
+import { AlertCircle, Filter } from "lucide-react";
 
 export default function ErrorLogsPage() {
   const [logs, setLogs] = useState<LogEntry[]>(errorLogsMock);

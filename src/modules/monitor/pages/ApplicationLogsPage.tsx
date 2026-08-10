@@ -1,6 +1,6 @@
 // src/modules/monitor/pages/ApplicationLogsPage.tsx
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";

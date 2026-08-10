@@ -1,14 +1,14 @@
 // src/modules/monitor/pages/DatabaseMonitoringPage.tsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { Button } from "@/shared/components/ui/button";
 import { databaseMetricsMock } from "../data/mockData";
-import { type DatabaseMetrics, type SlowQuery } from "../types";
+import { type DatabaseMetrics } from "../types";
 import { toast } from "sonner";
-import { Database, Download, AlertTriangle, Play, RefreshCw, BarChart2 } from "lucide-react";
+import { Database, Download, AlertTriangle } from "lucide-react";
 
 export default function DatabaseMonitoringPage() {
   const [selectedDb, setSelectedDb] = useState<DatabaseMetrics | null>(null);

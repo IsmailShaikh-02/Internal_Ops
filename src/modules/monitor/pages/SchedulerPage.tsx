@@ -1,6 +1,6 @@
 // src/modules/monitor/pages/SchedulerPage.tsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
@@ -8,7 +8,7 @@ import { Button } from "@/shared/components/ui/button";
 import { scheduledJobsMock } from "../data/mockData";
 import { type ScheduledJob } from "../types";
 import { toast } from "sonner";
-import { Calendar, Play, Pause, AlertCircle } from "lucide-react";
+import { Calendar, Play, Pause } from "lucide-react";
 
 export default function SchedulerPage() {
   const [jobs, setJobs] = useState<ScheduledJob[]>(scheduledJobsMock);

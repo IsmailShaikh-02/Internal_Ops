@@ -13,7 +13,7 @@ import {
   errorsTrend,
   queueTrend
 } from "../data/mockData";
-import { Activity, ShieldAlert, Cpu, Database, HardDrive, Terminal } from "lucide-react";
+import { Activity, ShieldAlert, Cpu, Terminal } from "lucide-react";
 
 export default function SystemHealthPage() {
   return (

@@ -39,13 +39,13 @@ const themeColors: Record<string, string> = {
   violet: "#8b5cf6",
 };
 
-const gradientColors: Record<string, string> = {
-  blue: "#93c5fd",
-  emerald: "#6ee7b7",
-  rose: "#fda4af",
-  amber: "#fde047",
-  violet: "#c4b5fd",
-};
+// const gradientColors: Record<string, string> = {
+//   blue: "#93c5fd",
+//   emerald: "#6ee7b7",
+//   rose: "#fda4af",
+//   amber: "#fde047",
+//   violet: "#c4b5fd",
+// };
 
 export function MetricChart({
   type,
@@ -57,7 +57,7 @@ export function MetricChart({
   showGrid = true,
 }: MetricChartProps) {
   const activeColor = themeColors[color] || color;
-  const lightColor = gradientColors[color] || activeColor;
+  // const lightColor = gradientColors[color] || activeColor;
 
   if (type === "pie") {
     const pieColors = ["#2563eb", "#10b981", "#f59e0b", "#f43f5e", "#8b5cf6", "#64748b"];

@@ -1,14 +1,14 @@
 // src/modules/monitor/pages/ServerMonitoringPage.tsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { Button } from "@/shared/components/ui/button";
 import { serversMock } from "../data/mockData";
-import { type ServerInfo, type ServerProcess } from "../types";
+import { type ServerInfo } from "../types";
 import { toast } from "sonner";
-import { RefreshCw, Download, Server, Cpu, HardDrive, CpuIcon } from "lucide-react";
+import { RefreshCw, Download, Server } from "lucide-react";
 
 export default function ServerMonitoringPage() {
   const [servers, setServers] = useState<ServerInfo[]>(serversMock);

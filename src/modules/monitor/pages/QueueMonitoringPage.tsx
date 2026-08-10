@@ -1,6 +1,6 @@
 // src/modules/monitor/pages/QueueMonitoringPage.tsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
@@ -9,7 +9,7 @@ import { StatCard } from "@/shared/components/ui/StatCard";
 import { queueInfoMock } from "../data/mockData";
 import { type QueueInfo } from "../types";
 import { toast } from "sonner";
-import { Play, Pause, RotateCcw, Trash2, ListChecks, Activity, HelpCircle } from "lucide-react";
+import { Play, Pause, RotateCcw, Trash2, ListChecks, Activity } from "lucide-react";
 
 export default function QueueMonitoringPage() {
   const [queues, setQueues] = useState<QueueInfo[]>(queueInfoMock);

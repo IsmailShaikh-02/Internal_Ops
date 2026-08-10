@@ -1,6 +1,6 @@
 // src/modules/monitor/pages/ApiMonitoringPage.tsx
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { StatCard } from "@/shared/components/ui/StatCard";
 import { DataTable } from "@/shared/components/ui/DataTable";
@@ -9,7 +9,7 @@ import { Button } from "@/shared/components/ui/button";
 import { apiOverallMetrics, apiEndpointsMock } from "../data/mockData";
 import { type ApiEndpointMetrics } from "../types";
 import { toast } from "sonner";
-import { Activity, ShieldAlert, Clock, ArrowUpRight, Filter, RefreshCw } from "lucide-react";
+import { Activity, ShieldAlert, Clock, ArrowUpRight, Filter } from "lucide-react";
 
 export default function ApiMonitoringPage() {
   const [selectedMethod, setSelectedMethod] = useState<string>("ALL");

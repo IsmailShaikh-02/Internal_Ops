@@ -10,7 +10,6 @@ import {
   Users,
   Coins,
   Clock3,
-  Target,
   Monitor,
   FolderGit2,
 } from "lucide-react";
@@ -151,14 +150,14 @@ export default function CreateTenantPage() {
     navigate("/tenants");
   };
 
-  const moduleDescriptions: Record<string, string> = {
-    HRMS: "Employee records, org chart, onboarding",
-    Payroll: "Salary runs, payslips, tax filings",
-    Attendance: "Time tracking, shifts, leave management",
-    Recruitment: "Job postings, pipelines, applicants",
-    Assets: "Device tracking, assignments, audits",
-    Projects: "Tasks, milestones, team collaboration",
-  };
+  // const moduleDescriptions: Record<string, string> = {
+  //   HRMS: "Employee records, org chart, onboarding",
+  //   Payroll: "Salary runs, payslips, tax filings",
+  //   Attendance: "Time tracking, shifts, leave management",
+  //   Recruitment: "Job postings, pipelines, applicants",
+  //   Assets: "Device tracking, assignments, audits",
+  //   Projects: "Tasks, milestones, team collaboration",
+  // };
 
 
 const moduleMetaData: Record<

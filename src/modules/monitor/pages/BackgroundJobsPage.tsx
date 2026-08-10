@@ -1,6 +1,6 @@
 // src/modules/monitor/pages/BackgroundJobsPage.tsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";

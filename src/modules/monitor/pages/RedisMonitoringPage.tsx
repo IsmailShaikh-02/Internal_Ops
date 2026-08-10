@@ -1,10 +1,10 @@
 // src/modules/monitor/pages/RedisMonitoringPage.tsx
 
-import React from "react";
+// import React from "react";
 import { MonitoringLayout } from "../components/MonitoringLayout";
 import { StatCard } from "@/shared/components/ui/StatCard";
 import { ChartCard } from "@/shared/components/ui/ChartCard";
-import { StatusBadge } from "@/shared/components/ui/StatusBadge";
+// import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { MetricChart } from "../components/MetricChart";
 import { redisMetricsMock, redisTrendData } from "../data/mockData";
 import { Database, Zap, Key, Trash } from "lucide-react";
