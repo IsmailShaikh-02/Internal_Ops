@@ -88,7 +88,13 @@ export function BottomNavigation() {
         {/* Center: Contextual FAB (Floating Action Button) */}
         <div className="relative -top-4 mx-2">
           <QuickActionFAB
-            onClick={() => window.dispatchEvent(new CustomEvent("focus-top-search"))}
+            onClick={() => {
+              const searchInput = document.querySelector('input[placeholder*="Search"]') as HTMLInputElement;
+              if (searchInput) {
+                searchInput.focus();
+              }
+              window.dispatchEvent(new CustomEvent("focus-top-search"));
+            }}
             onSwipeUp={() => setIsActivityOpen(true)}
           />
         </div>

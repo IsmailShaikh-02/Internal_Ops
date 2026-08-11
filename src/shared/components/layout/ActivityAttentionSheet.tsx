@@ -84,7 +84,7 @@ export function ActivityAttentionSheet({
             <div className="flex items-center gap-2 mb-3">
               <AlertTriangle className="h-4 w-4 text-rose-800 animate-pulse" />
               <h4 className="text-xs font-bold text-rose-800 uppercase tracking-widest">
-                🚨 Red Zone Alerts
+                 Red Zone Alerts
               </h4>
             </div>
             <div className="space-y-2">
@@ -110,7 +110,7 @@ export function ActivityAttentionSheet({
             <div className="flex items-center gap-2 mb-3">
               <History className="h-4 w-4 text-primary" />
               <h4 className="text-xs font-bold text-primary uppercase tracking-widest">
-                🕒 Recently Visited Submodules
+                 Recently Visited Submodules
               </h4>
             </div>
             <div className="grid grid-cols-2 gap-2.5">

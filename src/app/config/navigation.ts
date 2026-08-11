@@ -144,7 +144,17 @@ export const navigation: NavigationModule[] = [
     title: "Security",
     icon: Shield,
     path: "/security",
-    children: [],
+    children: [
+      { title: "Security Dashboard", path: "/security", group: "ACCESS" },
+      { title: "Login History", path: "/security/login-history", group: "ACCESS" },
+      { title: "Failed Logins", path: "/security/failed-logins", group: "ACCESS" },
+      { title: "Active Sessions", path: "/security/active-sessions", group: "ACCESS" },
+      { title: "Blocked IPs", path: "/security/blocked-ips", group: "ACCESS" },
+      { title: "User Impersonation", path: "/security/impersonation", group: "ACCESS" },
+      { title: "Multi-Factor Authentication", path: "/security/mfa", group: "ACCESS" },
+      { title: "Audit Logs", path: "/security/audit-logs", group: "GOVERNANCE" },
+      { title: "Security Policies", path: "/security/policies", group: "GOVERNANCE" },
+    ],
   },
 
   {
