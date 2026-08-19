@@ -100,7 +100,7 @@ export function SubscriptionsPage() {
         searchable
         searchPlaceholder="Search by tenant..."
         searchFields={["tenantName", "planName"]}
-        selectable
+        // selectable
       />
     </div>
   );

@@ -71,7 +71,7 @@ export function PaymentsPage() {
         searchable
         searchPlaceholder="Search payments..."
         searchFields={["tenantName", "invoiceNumber"]}
-        selectable
+        // selectable
       />
     </div>
   );

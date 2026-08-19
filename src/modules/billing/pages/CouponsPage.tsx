@@ -85,7 +85,7 @@ export function CouponsPage() {
         searchable
         searchPlaceholder="Search coupons..."
         searchFields={["code"]}
-        selectable
+        // selectable
       />
     </div>
   );

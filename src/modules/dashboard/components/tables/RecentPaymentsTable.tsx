@@ -32,7 +32,7 @@ export function RecentPaymentsTable({
   rowKey={(row) => row.id}
   pageSize={6} // Explicitly set to 6
   searchable
-  selectable
+  // selectable
   searchFields={["tenant", "method", "status"]}
   columns={[
     {

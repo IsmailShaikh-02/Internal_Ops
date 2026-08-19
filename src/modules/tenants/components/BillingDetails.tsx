@@ -134,7 +134,7 @@ export default function BillingDetails({ tenant }: BillingDetailsProps) {
               data={invoices}
               columns={invoiceColumns}
               rowKey={(row) => row.id}
-              selectable={true}
+              // selectable={true}
               searchable={true}
               searchPlaceholder="Search invoices..."
               searchFields={["id", "amount", "status"]}

@@ -71,7 +71,7 @@ export function RefundsPage() {
         searchable
         searchPlaceholder="Search refunds..."
         searchFields={["tenantName", "paymentId"]}
-        selectable
+        // selectable
       />
     </div>
   );

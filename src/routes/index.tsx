@@ -8,6 +8,13 @@ import RootLayout from './RootLayout';
 // Shared Loading Primitive
 import { Skeleton } from '@/shared/components/ui/skeleton';
 
+// Route Guards
+import AuthGuard from '@/app/guards/AuthGuard';
+
+// Auth Pages
+import LoginPage from '@/modules/auth/pages/LoginPage';
+import UnauthorizedPage from '@/modules/auth/pages/UnauthorizedPage';
+
 // Modular Route Configurations
 import { DashboardRoutes } from './DashboardRoutes';
 import { TenantRoutes } from './TenantRoutes';
@@ -17,7 +24,7 @@ import { UserRoutes } from './UserRoutes';
 import { SupportRoutes } from './SupportRoutes';
 import { MonitorRoutes } from './Monitor';
 import { SecurityRoutes } from './SecurityRoutes';
-// import { AiRoutes } from './AiRoutes';
+import { AiRoutes } from './AiRoutes';
 // import { IntegrationRoutes } from './IntegrationRoutes';
 
 // import { ReportRoutes } from './ReportRoutes';
@@ -37,8 +44,12 @@ export const AppRoutes = () => {
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          {/* Main Console Layout Shell */}
-          <Route element={<RootLayout />}>
+          {/* Standalone Authentication and Exception Routes */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/403-unauthorized" element={<UnauthorizedPage />} />
+
+          {/* Main Console Layout Shell (Protected) */}
+          <Route element={<AuthGuard><RootLayout /></AuthGuard>}>
             {DashboardRoutes}
             {TenantRoutes}
             {BillingRoutes}
@@ -47,8 +58,8 @@ export const AppRoutes = () => {
             {SupportRoutes}
             {MonitorRoutes}
             {SecurityRoutes}
-            {/* {AiRoutes}
-            {IntegrationRoutes}
+            {AiRoutes}
+            {/* {IntegrationRoutes}
             {ReportRoutes}
             {SettingsRoutes} */}
 
@@ -61,4 +72,4 @@ export const AppRoutes = () => {
   );
 };
 
-export default AppRoutes;
+export default AppRoutes;

@@ -162,7 +162,16 @@ export const navigation: NavigationModule[] = [
     title: "AI Administration",
     icon: Bot,
     path: "/ai",
-    children: [],
+    children: [
+      { title: "AI Dashboard", path: "/ai/dashboard", group: "USAGE" },
+      { title: "AI Usage", path: "/ai/usage", group: "USAGE" },
+      { title: "Token Usage", path: "/ai/token-usage", group: "USAGE" },
+      { title: "AI Analytics", path: "/ai/analytics", group: "USAGE" },
+      { title: "Cost Analytics", path: "/ai/cost-analytics", group: "USAGE" },
+      { title: "Prompt Library", path: "/ai/prompt-library", group: "CONFIGURATION" },
+      { title: "Prompt Templates", path: "/ai/prompt-templates", group: "CONFIGURATION" },
+      { title: "Model Configuration", path: "/ai/model-configuration", group: "CONFIGURATION" },
+    ],
   },
 
   {
