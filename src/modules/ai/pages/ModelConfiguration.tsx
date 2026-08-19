@@ -6,7 +6,7 @@ import { DataTable } from "@/shared/components/ui/DataTable";
 import { Button } from "@/shared/components/ui/button";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
 import { Switch } from "@/shared/components/ui/Switch";
-import { Edit, Star, StarOff, ShieldAlert, Cpu } from "lucide-react";
+import { Edit, Star } from "lucide-react";
 import { toast } from "sonner";
 
 export function ModelConfiguration() {

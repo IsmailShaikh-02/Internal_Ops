@@ -5,7 +5,7 @@ import { PromptModal } from "../components/PromptModal";
 import { DataTable } from "@/shared/components/ui/DataTable";
 import { Button } from "@/shared/components/ui/button";
 import { StatusBadge } from "@/shared/components/ui/StatusBadge";
-import { Edit, Copy, Archive, Globe, Eye } from "lucide-react";
+import { Edit, Copy, Archive, Globe } from "lucide-react";
 import { toast } from "sonner";
 
 export function PromptTemplates() {
