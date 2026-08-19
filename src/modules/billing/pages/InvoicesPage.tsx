@@ -121,7 +121,7 @@ export function InvoicesPage() {
         searchable
         searchPlaceholder="Search invoices..."
         searchFields={["invoiceNumber", "tenantName"]}
-        selectable
+        // selectable
       />
     </div>
   );

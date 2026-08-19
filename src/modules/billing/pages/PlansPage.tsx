@@ -27,11 +27,13 @@ export function PlansPage() {
       key: "price",
       header: "Price / mo",
       render: (row: BillingPlan) => <span>${row.price}</span>,
+      sortable:true,
     },
     {
       key: "seats",
       header: "Seats",
       render: (row: BillingPlan) => <span>{row.seats.toLocaleString()}</span>,
+      sortable:true,
     },
     {
       key: "storageGb",
@@ -128,7 +130,7 @@ export function PlansPage() {
           searchable
           searchPlaceholder="Search plans..."
           searchFields={["name"]}
-          selectable
+          // selectable
         />
       </div>
 

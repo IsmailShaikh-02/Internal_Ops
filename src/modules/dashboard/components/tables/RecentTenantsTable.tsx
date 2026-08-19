@@ -36,7 +36,7 @@ export function RecentTenantsTable({ data }: RecentTenantsTableProps) {
       rowKey={(row) => row.id}
       pageSize={6}
       searchable
-      selectable
+      // selectable
       searchFields={["tenant", "plan", "status"]}
       columns={[
         {

@@ -98,6 +98,7 @@ export function TenantOverridesPage() {
           {row.expiryDate ? row.expiryDate : "Never Expires"}
         </span>
       ),
+      sortable: true,
     },
     {
       key: "status",

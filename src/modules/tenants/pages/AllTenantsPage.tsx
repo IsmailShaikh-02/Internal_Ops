@@ -166,7 +166,7 @@ export default function AllTenantsPage() {
             searchable
             searchPlaceholder="Search by name, domain, owner..."
             searchFields={["name", "domain"]}
-            selectable
+            // selectable
             pageSize={8}
             showColumnsButton={true}
             showExportButton={true}

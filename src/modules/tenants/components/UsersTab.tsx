@@ -84,7 +84,7 @@ export default function UsersTab({ tenant }: UsersTabProps) {
           searchable
           searchPlaceholder="Search users..."
           searchFields={["name", "email", "role"]}
-          selectable
+          // selectable
         />
       </div>
     </div>
